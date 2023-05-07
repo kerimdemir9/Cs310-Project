@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import com.mynba.myNBA.RapidApiResponse;
 import com.mynba.myNBA.model.Team;
 import com.mynba.myNBA.model.TeamWithInfo;
+import com.mynba.myNBA.response.TeamsResponse;
 
 import lombok.AllArgsConstructor;
 
@@ -59,7 +60,7 @@ public class TeamsController {
 	        }
 	    });
 	    
-	    return teamsFiltered;
+	    return new TeamsResponse(teamsFiltered);
 	}
 	
 	@GetMapping("/{id}")

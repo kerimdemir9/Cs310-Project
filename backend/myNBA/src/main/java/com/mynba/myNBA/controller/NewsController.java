@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.mynba.myNBA.response.NewsResponse;
+
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -31,7 +33,7 @@ public class NewsController {
 	    RestTemplate restTemplate = new RestTemplate();
 	    ResponseEntity<Object> result = restTemplate.exchange(uri, HttpMethod.GET, entity, Object.class);
 
-	    return result;
+	    return new NewsResponse(result.getBody());
 	}
 
 }
